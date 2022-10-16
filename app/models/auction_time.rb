@@ -1,0 +1,2 @@
+class AuctionTime < ApplicationRecord
+end

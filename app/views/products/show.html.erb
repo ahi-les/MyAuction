@@ -1,0 +1,24 @@
+<article class="card">
+  <div class="card-body">
+  	<div class="d-flex"><h5 class="me-3"><%=t('.name')%></h5><p class="fw-bold text-primary"><%= @dish.name %></p></div>
+  	<div class="d-flex"><h5 class="me-3"><%= t('.Weight') %></h5><p class="fw-bold text-primary"><%= @dish.units %></p></div>
+  	<div class="d-flex"><h5 class="me-3"><%= t('.Price') %></h5><p class="fw-bold text-primary"><%= @dish.dish_price %></p></div>
+  	<div class="d-flex"><h5 class="me-3"><%=t('.category')%></h5><p class="fw-bold text-primary"><%= @dish.category.name %></p></div>
+  	<div class="d-flex"><h5 class="me-3"><%=t('.measure')%></h5><p class="fw-bold text-primary"><%= @dish.measure.name %></p></div>
+  	<div class="d-flex"><h5 class="me-3"><%=t('.pricing_type')%></h5><p class="fw-bold text-primary"><%= @dish.pricing_type.name %></p></div>
+
+  	<%= link_to t('.edit dish'), edit_dish_path(@dish), class: 'btn btn-secondary' %>
+  	<%= link_to t('.destroy dish'), dish_path(@dish), class: 'btn btn-danger', data: {method: :delete, confirm: t('.are you sure?')} %>
+    <div>
+        <%= link_to product_path(product), title: t('.show product') do %>
+          <i class="fa-sharp fa-solid fa-magnifying-glass m-2 link-dark"></i>
+        <% end %>
+        <%= link_to edit_product_path(product), title: t('.edit product') do %>
+          <i class="fa-solid fa-pencil m-2 link-secondary"></i>
+        <% end %>
+        <%= link_to product_path(product), title: t('.destroy product'), data: {method: :delete, confirm: t('.are you sure?')}  do %>
+          <i class="fa-solid fa-trash-can m-2 link-danger"></i>
+        <% end %>
+      </div>
+  </div>
+</article>

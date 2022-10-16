@@ -1,0 +1,113 @@
+<%= render 'shared/errors', object: @product %>
+
+<%= form_with model: @product do |f| %>
+  <div class="mb-3 row">
+    <%= f.label t('.title'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.text_field :title, required: true, minlength: 2, maxlength: 100, placeholder: "Product", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.description'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.text_field :description, required: true, minlength: 2, maxlength: 1000, placeholder: "Description", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.message'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.text_field :message, required: true, minlength: 2, maxlength: 500, placeholder: "Message to the buyer", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+      <%= f.label t('.start_date'), class: 'col-sm-1 col-form-label fw-bold' %>
+      <div class="col-sm-2">
+       <%= f.datetime_field :start_date, required: true, min: Date.today, max: "#{(Date.today + 30.days)}", class: 'date_edited form-control' %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label t('.end_date'), class: 'col-sm-1 col-form-label fw-bold' %>
+      <div class="col-sm-2">
+       <%= f.datetime_field :end_date, required: true, min: Date.today, max: "#{(Date.today + 30.days)}", class: 'date_edited form-control' %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+    <%= f.label t('.sity'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.text_field :sity, required: true, minlength: 2, maxlength: 100, placeholder: "Location", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row d-flex align-items-center">
+    <%= f.label t('.starting_price'), class: 'col-sm-1 col-form-label fw-bold ' %>
+    <div class="col-sm-5">
+     <%= f.number_field :starting_price, required: true, minlength: 1, min: 1, placeholder: t('.starting_price'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.buy_now'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.number_field :buy_now, required: true, minlength: 1, min: 1, placeholder: t('.buy_now'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.category'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.select :category_id, nested_dropdown(Category.all.arrange), {prompt: "Category"}, selected: @category, class: 'js-multiple-select form-control', data: {'ajax-url': '/api/payments'}  %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.gender'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.select :gender_id, Gender.all.map{ |c| [c.name, "#{c.id}"] }, {include_blank: true}, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.condition'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.select :condition_id, Condition.all.map{ |c| [c.name, "#{c.id}"] }, {prompt: "Select item condition"}, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.deliveries'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.collection_select :delivery_ids, @deliveries, :id, :name, {prompt: "Select delivery methods"}, multiple: true, class: 'js-multiple-select form-control', data: {'ajax-url': '/api/deliveries'} %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.payments'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.collection_select :payment_ids, @payments, :id, :name, {prompt: "Select payment methods"}, multiple: true, class: 'js-multiple-select form-control', data: {'ajax-url': '/api/payments'} %>
+    </div>
+  </div>
+ 
+  <div class="mb-3 row">
+    <%= f.label t('.status'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.select :status_id, Status.all.map{ |c| [c.name, "#{c.id}"] }, {}, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label t('.images'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.file_field :images, multiple: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div><%= f.hidden_field :user_id, :value => "#{current_user.id}" %></div>
+
+  <%= f.submit t('.sabmit'), class: 'btn btn-success' %>
+<% end %>
+

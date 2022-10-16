@@ -1,0 +1,5 @@
+<h1>Welcome to Auction</h1>
+<% if user_signed_in? %>
+  <p>You are a [<%= current_user.role %>]</p>
+<% end %>
+&copy: @ogol <%= Time.now.year %>

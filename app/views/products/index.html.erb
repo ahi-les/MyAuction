@@ -1,0 +1,23 @@
+<h2><%= t('.title') %></h2>
+
+
+
+<p><%= link_to t('.new product'), new_product_path, class: 'btn btn-primary mt-3' %></p>
+<%== pagy_bootstrap_nav @pagy %>
+<% @products.each do |product| %>
+  <article class="card">
+    <div class="card-body">
+    	<div class="d-flex flex-column p-1">
+        <% product.images.each do |image| %>
+          <%= link_to image_tag(image, style: "width:150px; height:150px"), image %>
+        <% end %>
+        <p class="me-3 fw-bold mb-1"><%= product.title %></p>
+        <p class="me-3 mb-1"><%= product.condition.name %></p>
+	    	<p class="me-3 mb-1"> <%= product.end_date %></p>
+        <p class="me-3 mb-1"><%= product.starting_price %></p>
+        <p class="me-3 mb-1"><%= product.buy_now %></p>
+    	</div>
+    </div>
+  </article>
+<% end %>
+<%== pagy_bootstrap_nav @pagy %>

@@ -1,0 +1,149 @@
+uk:
+  en: Англійська
+  ru: Російська
+  uk: Українська
+  layouts:
+    application:
+      menu_nav: Меню
+      categories_nav: Категорії
+      dishes_nav: Страви
+      day_menu_nav: Дневне меню
+      orders_nav: Замовлення
+      Log Out: Вийти
+      Log In: Вхід
+      Sing Up: Реєстрація
+  devise:
+    sessions:
+      new:
+        Log In: Вхід
+    registrations:
+      new:
+        Sing Up: Реєстрація
+    shared:
+      links:
+        Log In: Вхід
+        Sing Up: Реєстрація
+  menu:
+    index:
+      title: "Ласкаво просимо в інтерактивне меню"
+      show dish: Подивитись страву
+      Price: "Ціна:"
+      Weight: "Вага:"
+  categories:
+    index:
+      title: Категорії
+      new category: Нова категорія
+      show category: Подивитись категорію
+      edit category: Змінити категорію
+      destroy category: Видалити категорію
+      are you sure?: Ви впевнені?
+    show:
+      Price: "Ціна:"
+      Weight: "Вага:"
+      show dish: Подивитись страву
+      edit dish: Змінити страву
+      destroy dish: Видалити страву
+      are you sure?: Ви впевнені?
+    edit:
+      title: Змінити категорію
+    new:
+      title: Нова категорія
+    form:
+      name: Назва
+      sabmit: Зберегти категорію!
+  dishes:
+    index:
+      title: Страва
+      Price: "Ціна:"
+      Weight: "Вага:"
+      new dish: Нова страва
+      show dish: Подивитись страву
+      edit dish: Змінити страву
+      destroy dish: Видалити страву
+      are you sure?: Ви впевнені?
+      сategory: "Категорія:"
+      search: Пошук
+      search for dish name: "Шукати назву страви:"
+      search for category name: "Шукати назву категорії:"
+      search for pricing type: "Шукати тип ціни:"
+      sort by field: "Сортувати за полем:"
+      order by: "Сортувати за:"
+      please Select: Будь ласка, виберіть
+    edit:
+      title: Змінити страву
+    new:
+      title: Нова страва
+    form:
+      name: Назва
+      sabmit: Зберегти страву!
+      units: Обсяг
+      dish_price: Ціна страви
+      measure: Одиниці вімірювання
+      pricing_type: Тип ціни
+      category: Категорія
+    show:
+      name: Назва
+      measure: Одиниці вімірювання
+      pricing_type: Тип ціни
+      category: Категорія
+      Price: "Ціна:"
+      Weight: "Вага:"
+      edit dish: Змінити страву
+      destroy dish: Видалити страву
+      are you sure?: Ви впевнені?
+  day_menus:
+    index:
+      title: Дневне меню
+      new_day_menu: Нове дневне меню
+      more_details: Детальніше
+      destroy_day_menu: Видалити дневне меню
+      are you sure?: Ви впевнені?
+    edit:
+      title: Змінити дневне меню
+    new:
+      title: Нове дневне меню
+    form:
+      sabmit: Зберегти дневне меню!
+      add_dish: Додати страву
+      date_menu: Дата меню
+    day_menu_dish:
+      price: Ціна
+      select_dish: Вибрати страву
+      delete_dish: Видалити страву
+      dish: Страва
+    show:
+      pricing_type: "Тип ціноутворення: "
+      edit_day_menu: Змінити дневне меню
+  orders:
+    index:
+      title: Замовлення
+      new_order: Нове замовлення
+      more_details: Детальніше
+      destroy_order: Видалити заказ
+      are you sure?: Ви впевнені?
+      daily menu order from: "Замовлення щоденного меню від:"
+      order creation date: "Дата створення замовлення:"
+    edit:
+      title: Редагувати замовлення
+    new:
+      title: Нове замовлення
+    form:
+      submit: Зберегти
+      total price: "Загальна ціна: "
+      price:  "Ціна: "
+      thing: шт
+      day_menu: Дата денного меню
+      pricing type: "Тип ціни: "
+      quantity: Кількість
+      number_of_servings: Кількість порцій
+    show:
+      order on date: "Дата замовлення:"
+      edit: Редагувати замовлення
+      Price: "Ціна:"
+      Weight: "Вага:"
+      pricing_type: "Тип ціни: "
+      thing: шт
+      total price: "Загальна ціна: "
+      servings: "Кількість порцій:"
+
+    

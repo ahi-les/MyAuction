@@ -1,0 +1,187 @@
+en:
+  en: English
+  ru: Russian
+  uk: Ukrainian
+  layouts:
+    application:
+      menu_nav: Menu
+      categories_nav: Categories
+      products_nav: Products
+      Log Out: Log Out
+      Log In: Log In
+      Sing Up: Sing Up
+  devise:
+    sessions:
+      new:
+        Log In: Log In
+    registrations:
+      new:
+        Sing Up: Sing Up
+    shared:
+      links:
+        Log In: Log In
+        Sing Up: Sing Up
+
+  menu:
+    index:
+      title: "Welcome to Interactive menu"
+      show dish: Show dish
+      Price: "Price:"
+      Weight: "Weight:"
+  categories:
+    index:
+      title: Categories
+      new category: New category
+      show category: Show category
+      edit category: Edit category
+      destroy category: Destroy category
+      are you sure?: Are you sure?
+    show:
+      show subcategory: Show subcategory
+      edit subcategory: Edit subcategory
+      destroy subcategory: Destroy subcategory
+      are you sure?: Are you sure?
+    edit:
+      title: Edit category
+    new:
+      title: New category
+    form:
+      name: Name
+      sabmit: Sabmit category!
+      parent_id: Parent category
+    subcategories:
+      show category: Show category
+      edit category: Edit category
+      destroy category: Destroy category
+      are you sure?: Are you sure?
+  products:
+    index:
+      title: Product
+      new dish: New product
+      show dish: Show product
+      edit dish: Edit product
+      destroy dish: Destroy product
+      are you sure?: Are you sure?
+      сategory: "Category:"
+      search: Search
+      search for dish name: "Search for dish name:"
+      search for category name: "Search for category name:"
+      search for pricing type: "Search for pricing type:"
+      sort by field: "Sort by field:"
+      order by: "Order by:"
+      please Select: Please Select
+    edit:
+      title: Edit product
+    new:
+      title: New product
+    form:
+      name: Name
+      title: Title
+      sabmit: Sabmit product!
+      description: Description
+      message: Message
+      start_date: Start date
+      end_date: End date
+      sity: Sity
+      starting_price: Starting price
+      buy_now: Buy now
+      category: Category
+      gender: Gender
+      condition: Condition
+      status: Status
+      images: Images
+      deliveries: Deliveries
+      payments: Payments
+    show:
+      name: Name
+      measure: Measure
+      pricing_type: Pricing type
+      category: Category
+      Price: "Price:"
+      Weight: "Weight:"
+      edit dish: Edit dish
+      destroy dish: Destroy dish
+      are you sure?: Are you sure?
+  subcategories:
+    index:
+      title: Subcategories
+      new subcategory: New subcategory
+      show subcategory: Show subcategory
+      edit subcategory: Edit subcategory
+      destroy subcategory: Destroy subcategory
+      are you sure?: Are you sure?
+      сategory: "Category:"
+      please Select: Please Select
+    edit:
+      title: Edit subcategory
+    new:
+      title: New subcategory
+    form:
+      name: Name
+      sabmit: Sabmit subcategory!
+      category: Subcategory
+      subcategory: Subcategory
+    show:
+      name: Name
+      category: Category
+      edit subcategory: Edit subcategory
+      destroy subcategory: Destroy subcategory
+      are you sure?: Are you sure?    
+  day_menus:
+    index:
+      title: Day menu
+      new_day_menu: New Day Menu
+      more_details: More details
+      destroy_day_menu: Destroy Day Menu
+      are you sure?: Are you sure?
+    edit:
+      title: Edit day menu
+    new:
+      title: New day menu
+    form:
+      sabmit: Sabmit day menu!
+      add_dish: Add dish
+      date_menu: Date menu
+    day_menu_dish:
+      price: Price
+      select_dish: Select Dish
+      delete_dish: Delete dish
+      dish: Dish
+    show:
+      pricing_type: "Pricing type: "
+      edit_day_menu: Edit Day Menu
+  orders:
+    index:
+      title: Orders
+      new_order: New order
+      more_details: More details
+      destroy_order: Destroy Order
+      are you sure?: Are you sure?
+      daily menu order from: "Daily menu order from:"
+      order creation date: "Order creation date:"
+    edit:
+      title: Edit order
+    new:
+      title: New order
+    form:
+      submit: Submit Day Menu
+      total price: "Total price: "
+      price:  "Price: "
+      thing: thing
+      day_menu: Date day menu
+      pricing type: "Pricing type: "
+      quantity: Quantity
+      number_of_servings: Number of servings
+    show:
+      order on date: "Order on Date:"
+      edit: Edit Order
+      Weight: "Weight:"
+      Price: "Price:"
+      pricing_type: "Pricing type: "
+      thing: thing
+      total price: "Total price: "
+      servings: "Servings:"
+
+
+
+

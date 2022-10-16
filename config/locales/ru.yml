@@ -1,0 +1,175 @@
+ru:
+  en: Английский
+  ru: Русский
+  uk: Украинский
+  layouts:
+    application:
+      menu_nav: Меню
+      categories_nav: Категории
+      products_nav: Товары
+      Log Out: Выйти
+      Log In: Войти
+      Sing Up: Регистрация
+  devise:
+    sessions:
+      new:
+        Log In: Войти
+    registrations:
+      new:
+        Sing Up: Регистрация
+    shared:
+      links:
+        Log In: Войти
+        Sing Up: Регистрация
+  menu:
+    index:
+      title: "Добро пожаловать в интерактивное меню"
+      show dish: Посмотреть блюдо
+      Price: "Цена:"
+      Weight: "Масса:"
+  categories:
+    index:
+      title: Категории
+      new category: Новая категория
+      show category: Посмотреть категорию
+      edit category: Изменить категорию
+      destroy category: Удалить категорию
+      are you sure?: Вы уверены?
+    show:
+      show subcategory: Посмотреть подкатегорию
+      edit subcategory: Изменить подкатегорию
+      destroy subcategory: Удалить подкатегорию
+      are you sure?: Вы уверены?
+    edit:
+      title: Изменить категорию
+    new:
+      title: Новая категория
+    form:
+      name: Название
+      sabmit: Сохранить категорию!
+      parent_id: Родительская категория
+    subcategories:
+      show category: Посмотреть категорию
+      edit category: Изменить категорию
+      destroy category: Удалить категорию
+      are you sure?: Вы уверены?
+  dishes:
+    index:
+      title: Блюда
+      Price: "Цена:"
+      Weight: "Масса:"
+      new dish: Новое блюдо
+      show dish: Посмотреть блюдо
+      edit dish: Изменить блюдо
+      destroy dish: Удалить блюдо
+      are you sure?: Вы уверены?
+      сategory: "Категория:"
+      search: Поиск
+      search for dish name: "Искать название блюда:"
+      search for category name: "Поиск по названию категории:"
+      search for pricing type: "Поиск типа ценообразования:"
+      sort by field: "Сортировать по полю:"
+      order by: "Упорядочить по:"
+      please Select: Пожалуйста, выберите
+    edit:
+      title: Изменить бдюдо
+    new:
+      title: Новое блюдо
+    form:
+      name: Название
+      sabmit: Сохранить блюдо!
+      units: Объем
+      dish_price: Цена блюда
+      measure: Единицы измерения
+      pricing_type: Тип цены
+      category: Категория
+      deliveries: Доставка
+    show:
+      name: Название
+      measure: Единицы измерения
+      pricing_type: Тип цены
+      category: Категория
+      Price: "Цена:"
+      Weight: "Масса:"
+      edit dish: Изменить блюдо
+      destroy dish: Удалить блюдо
+      are you sure?: Вы уверены?
+  subcategories:
+    index:
+      title: Подкатегория
+      new subcategory: Новая подкатегория
+      show subcategory: Посмотреть подкатегорию
+      edit subcategory: Изменить подкатегорию
+      destroy subcategory: Удалить подкатегорию
+      are you sure?: Вы уверены?
+      сategory: "Категория:"
+      please Select: Пожалуйста, выберите
+    edit:
+      title: Изменить подкатегорию
+    new:
+      title: Новая подкатегория
+    form:
+      name: Название
+      sabmit: Сохранить подкатегорию!
+      category: Категория
+      subcategory: Подкатегория
+    show:
+      name: Название
+      category: Категория
+      edit subcategory: Изменить подкатегорию
+      destroy subcategory: Удалить подкатегорию
+      are you sure?: Вы уверены?    
+  day_menus:
+    index:
+      title: Дневное меню
+      new_day_menu: Новое дневное меню
+      more_details: Детальнее
+      destroy_day_menu: Удалить дневное меню
+      are you sure?: Вы уверены?
+    edit:
+      title: Изменить дневное меню
+    new:
+      title: Новое дневное меню
+    form:
+      sabmit: Сохранить дневное меню!
+      add_dish: Добавить блюдо
+      date_menu: Дата меню
+    day_menu_dish:
+      price: Цена
+      select_dish: Выбрать блюдо
+      delete_dish: Удалить блюдо
+      dish: Блюдо
+    show:
+      pricing_type: "Тип цены: "
+      edit_day_menu: Изменить дневное меню
+  orders:
+    index:
+      title: Заказы
+      new_order: Новый заказ
+      more_details: Детальнее
+      destroy_order: Удалить заказ
+      are you sure?: Вы уверены?
+      daily menu order from: "Заказ ежедневного меню от:"
+      order creation date: "Дата создания заказа:"
+    edit:
+      title: Изменить заказ
+    new:
+      title: Новый заказ
+    form:
+      submit: Сохранить
+      total price: "Общая цена: "
+      price:  "Цена: "
+      thing: шт
+      day_menu: Дата дневного меню
+      pricing type: "Тип цены: "
+      quantity: Количество
+      number_of_servings: Количество порций
+    show:
+      order on date: "Дата заказа:"
+      edit: Изменить заказ
+      Price: "Цена:"
+      Weight: "Масса:"
+      pricing_type: "Тип цены: "
+      thing: шт
+      total price: "Общая цена: "
+      servings: "Количество порций:"

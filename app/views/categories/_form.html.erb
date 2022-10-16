@@ -1,0 +1,18 @@
+<%= render 'shared/errors', object: @category %>
+
+<%= form_with model: @category do |f| %>
+  <div class="mb-3 row d-flex align-items-center">
+    <%= f.label t('.name'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.text_field :name, required: true, minlength: 2, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="mb-3 row d-flex align-items-center">
+    <%= f.label t('.parent_id'), class: 'col-sm-1 col-form-label fw-bold' %>
+    <div class="col-sm-5">
+     <%= f.select :parent_id, @categories, {include_blank: true }, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.submit t('.sabmit'), class: 'btn btn-success' %>
+<% end %>
