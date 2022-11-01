@@ -25,14 +25,14 @@
   <div class="mb-3 row">
       <%= f.label t('.start_date'), class: 'col-sm-1 col-form-label fw-bold' %>
       <div class="col-sm-2">
-       <%= f.datetime_field :start_date, required: true, min: Date.today, max: "#{(Date.today + 30.days)}", class: 'date_edited form-control' %>
+       <%= f.datetime_field :start_date, required: true, min: Date.current, max: "#{(Date.current + 30.days)}", class: 'date_edited form-control' %>
       </div>
     </div>
 
     <div class="mb-3 row">
       <%= f.label t('.end_date'), class: 'col-sm-1 col-form-label fw-bold' %>
       <div class="col-sm-2">
-       <%= f.datetime_field :end_date, required: true, min: Date.today, max: "#{(Date.today + 30.days)}", class: 'date_edited form-control' %>
+       <%= f.datetime_field :end_date, required: true, min: Date.current, max: "#{(Date.current + 30.days)}", class: 'date_edited form-control' %>
       </div>
     </div>
 
@@ -101,8 +101,19 @@
 
   <div class="mb-3 row">
     <%= f.label t('.images'), class: 'col-sm-1 col-form-label fw-bold' %>
-    <div class="col-sm-5">
-     <%= f.file_field :images, multiple: true, class: 'form-control' %>
+    <div class="col-sm-5 d-flex ">
+      <% if !f.object.new_record? && f.object.images.present? %> 
+        <% @product.images.each do |image| %>
+          <div>
+            <%= image_tag(image, class: "card-img-min border border-secondary") %>
+          </div>
+          <%= link_to purge_image_path(image), title: t('.destroy_image'), data: {turbo_method: :delete, turbo_confirm: t('.are you sure?')}  do %>
+            <i class="fa-solid fa-trash-can m-2 link-danger"></i>
+          <% end %>
+        <% end %> 
+      <% else %> 
+        <%= f.file_field :images, multiple: true, direct_upload: true, class: 'form-control' %> 
+      <% end %>
     </div>
   </div>
 

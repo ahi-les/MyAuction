@@ -1,0 +1,22 @@
+<%= turbo_frame_tag price do %>
+  <%= form_with model: [price.product, price] do |f| %>
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">Make a bet</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      
+        <div class="mb-3 row d-flex align-items-center">
+          <%= f.label 'Specify a rate', class: 'col-sm-5 col-form-label fw-bold ' %>
+          <div class="col-sm-5">
+           <%= f.number_field :price, required: true, minlength: 1, min: ((product.prices.last&.price)*1.05).round || product.starting_price,  step: (((product.prices.last&.price || product.starting_price)*5)/100).round , placeholder: ((product.prices.last&.price)*1.05).round || product.starting_price, value:((product.prices.last&.price)*1.05).round || product.starting_price,  class: 'form-control' %>
+          </div>
+          <div><%= f.hidden_field :product_id, :value => "#{product.id}" %></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <%= f.submit 'sabmit', class: 'btn btn-success', "data-bs-dismiss": "modal", data:{ turbo: false } %>
+    </div>
+  <% end %>
+<% end %>

@@ -32,6 +32,10 @@ module ApplicationHelper
     end
     result
   end
+
+  def prepend_flash
+    turbo_stream.prepend 'flash', partial: 'shared/flash'
+  end
 end
 
   

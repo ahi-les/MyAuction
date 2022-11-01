@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   before_action :fetch_payments, only: %i[new edit]
 
   def show
+    @prices = @product.prices.order created_at: :desc
     # respond_to do |format|
   #     format.html
   #     format.json { render :json => @dish.to_json(:include => [:measure,:pricing_type])}
@@ -14,7 +15,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:success] = "Product deleted!"
-    redirect_to products_path
+    redirect_to products_path, status: 303
   end
 
   def edit
@@ -25,12 +26,12 @@ class ProductsController < ApplicationController
       flash[:success] = "Product updated!"
       redirect_to products_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def index
-
+    
     @pagy, @products = pagy(Product.all.order('category_id'))
     # @search = SearchParams.new(params[:search_params] || {})
     # @products = @search.product_apply_filters(@products)
@@ -51,7 +52,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       flash[:success] = "Product not created!"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -61,7 +62,8 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:title, :description, :message,
      :start_date, :end_date, :sity, :starting_price, :buy_now, :category_id,
       :gender_id, :condition_id, :user_id, :status_id, :body, images:[],
-       delivery_ids:[], payment_ids:[])
+       delivery_ids:[], payment_ids:[], prices_attributes:
+     Price.attribute_names.map(&:to_sym).push(:_destroy))
   end
 
   def set_product

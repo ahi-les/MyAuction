@@ -25,7 +25,8 @@ class Product < ApplicationRecord
   validates :buy_now, numericality: { in: 1..10000000 }, presence: true, length: {minimum: 1}
 
   validate :end_date_is_after_start_date
-  validate :start_date_is_after_current_time
+  validate :start_date_is_after_current_time, on: :create
+  validate :buy_now_more_starting_price
 
   scope :all_by_deliveries, lambda { |deliveries|
     products = includes(:user)
@@ -52,14 +53,20 @@ class Product < ApplicationRecord
   private
 
   def end_date_is_after_start_date
-    if end_date < start_date
+    if end_date <= start_date
       errors.add(:end_date, 'cannot be before the start date')
     end
   end
 
   def start_date_is_after_current_time
-    if start_date < (DateTime.now)
+    if start_date < (Date.current)
       errors.add(:start_date, 'cannot be before the current time')
+    end
+  end
+
+  def buy_now_more_starting_price
+    if buy_now < starting_price
+      errors.add(:starting_price, 'cannot be before the buy now')
     end
   end
 end

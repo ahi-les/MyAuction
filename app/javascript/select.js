@@ -12,7 +12,7 @@ document.addEventListener("turbo:before-cache", function() {
 const rerender = function() {
   const i18n = Translations[document.querySelector('body').dataset.lang]
 
-  document.querySelectorAll('.js-multiple-select').forEach((element) => {
+  document.querySelectorAll('select.js-multiple-select').forEach((element) => {
     let opts = {
       plugins: {
         'remove_button': {

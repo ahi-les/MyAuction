@@ -20,9 +20,12 @@ gem 'pagy', '~> 5.10', '>= 5.10.1'
 gem 'ancestry', '~>4.2.0'
 gem "font-awesome-rails"
 gem "turbo-rails"
+gem "stimulus-rails"
+gem 'local_time'
+gem 'sidekiq', '~>6'
+gem 'after_commit_everywhere', '~> 1'
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
-
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

@@ -1,24 +1,110 @@
-<article class="card">
-  <div class="card-body">
-  	<div class="d-flex"><h5 class="me-3"><%=t('.name')%></h5><p class="fw-bold text-primary"><%= @dish.name %></p></div>
-  	<div class="d-flex"><h5 class="me-3"><%= t('.Weight') %></h5><p class="fw-bold text-primary"><%= @dish.units %></p></div>
-  	<div class="d-flex"><h5 class="me-3"><%= t('.Price') %></h5><p class="fw-bold text-primary"><%= @dish.dish_price %></p></div>
-  	<div class="d-flex"><h5 class="me-3"><%=t('.category')%></h5><p class="fw-bold text-primary"><%= @dish.category.name %></p></div>
-  	<div class="d-flex"><h5 class="me-3"><%=t('.measure')%></h5><p class="fw-bold text-primary"><%= @dish.measure.name %></p></div>
-  	<div class="d-flex"><h5 class="me-3"><%=t('.pricing_type')%></h5><p class="fw-bold text-primary"><%= @dish.pricing_type.name %></p></div>
-
-  	<%= link_to t('.edit dish'), edit_dish_path(@dish), class: 'btn btn-secondary' %>
-  	<%= link_to t('.destroy dish'), dish_path(@dish), class: 'btn btn-danger', data: {method: :delete, confirm: t('.are you sure?')} %>
-    <div>
-        <%= link_to product_path(product), title: t('.show product') do %>
-          <i class="fa-sharp fa-solid fa-magnifying-glass m-2 link-dark"></i>
-        <% end %>
-        <%= link_to edit_product_path(product), title: t('.edit product') do %>
-          <i class="fa-solid fa-pencil m-2 link-secondary"></i>
-        <% end %>
-        <%= link_to product_path(product), title: t('.destroy product'), data: {method: :delete, confirm: t('.are you sure?')}  do %>
-          <i class="fa-solid fa-trash-can m-2 link-danger"></i>
-        <% end %>
+<div class="row row-cols-sm-1 row-cols-sm-3 g-2">
+  <article class="col">  
+    <div class="card">
+      <div class="card">
+        <div data-controller="carousel" class="swiper-mySwiper" data-carousel-options-value='{
+                    "pagination": { "el": ".swiper-pagination", 
+                                    "dynamicBullets": "true" },
+                    "navigation": { "nextEl": ".swiper-button-next", 
+                                    "prevEl": ".swiper-button-prev"}}'>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-wrapper">
+            <% if @product.images.attached? %>
+              <% @product.images.each do |image| %>
+                <div class="swiper-slide">
+                <%= image_tag(image, class: "card-img-top") %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-  </div>
-</article>
+      <%= turbo_stream_from(@product, :prices) %>
+      <div class="card-body">
+        <div class="d-flex flex-column p-1" data-controller="timers">
+          <p class="me-3 fw-bold mb-1"><%= @product.title %></p>
+          <p class="me-3 mb-1"><%= @product.condition.name %></p>
+          <div id="<%= @product.id %>" value="<%= @product.end_date %>" class="me-3 mb-1">
+            <span class="days"></span>
+            <span class="dayname"></span>
+            <span class="hours">00</span>
+            <span>:</span>
+            <span class="minutes">00</span>
+            <span>:</span>
+            <span class="seconds">00</span>
+          </div>
+          <p class="me-3 mb-1"><%= @product.status.name %></p>
+          <!-- Button trigger modal -->
+          <div class="row m-1">
+            <h4 class="col-5">Current rate</h4>
+            <button type="button" class="btn btn-primary col-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= @product.id %>"><div id="price">
+              <%=  render partial: 'prices/pricess', locals: { price: @prices.where(product_id: @product.id).first.price } || @product.starting_price %></div>
+            </button>
+          </div>  
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop<%= @product.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="my-4">
+                    
+                      <%= turbo_frame_tag Price.new, src: new_product_price_path(product_id: @product) %>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row m-1">
+            <h4 class="col-5">Buy now</h4>
+            <button type="button" class="btn btn-primary col-5" data-bs-toggle="modal" data-bs-target="#staticBackdropp<%= @product.id %>">
+              <%= @product.buy_now %>
+            </button>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdropp<%= @product.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= link_to product_path(@product), title: t('.show product') do %>
+            <i class="far fa-eye m-2 link-dark"></i>
+          <% end %>
+          <%= link_to edit_product_path(@product), title: t('.edit product') do %>
+            <i class=" far fa-edit m-2 link-secondary"></i>
+          <% end %>
+          <%= link_to product_path(@product), title: t('.destroy product'), data: {turbo_method: :delete, turbo_confirm: t('.are you sure?')}  do %>
+            <i class="fa-solid fa-trash-can m-2 link-danger"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="col">
+    <%= turbo_frame_tag 'prices' do %>
+      <%=  render @prices %>
+    <% end %>
+  </article>
+  <article class="col">
+    <%= turbo_stream_from "price" %>
+    <div id="price">
+      <%= render partial: 'prices/pricess', locals: { price: @prices.where(product_id: @product.id).first.price } %>
+    </div>
+    <%= turbo_frame_tag 'prices' do %>
+      <%=  render @prices %>
+    <% end %>
+  </article>
+</div>
+
+
+

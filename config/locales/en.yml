@@ -92,6 +92,8 @@ en:
       images: Images
       deliveries: Deliveries
       payments: Payments
+      destroy_image: Destroy image
+      are you sure?: Are you sure?
     show:
       name: Name
       measure: Measure
